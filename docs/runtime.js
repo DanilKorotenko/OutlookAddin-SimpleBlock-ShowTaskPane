@@ -3,7 +3,6 @@ let mailboxItem;
 Office.initialize = function (reason)
 {
     console.log("*******************************************************");
-    console.log("Office.initialize");
     mailboxItem = Office.context.mailbox.item;
 }
 
@@ -11,10 +10,24 @@ function validateMessage(event)
 {
     console.log("Start validation stream");
 
-    mailboxItem.notificationMessages.addAsync('NoSend',
-        { type: 'errorMessage',
-        message: 'Message blocked.' });
-            
+    const message =
+    {
+        type: Office.MailboxEnums.ItemNotificationMessageType.InsightMessage,
+        message: notificationMessage,
+        icon: "Icon.16x16",
+        actions:
+        [
+            {
+                actionText: "Show task pane",
+                actionType: Office.MailboxEnums.ActionType.ShowTaskPane,
+                commandId: "msgComposeOpenPaneButton",
+                contextData: "{''}",
+            },
+        ],
+    };
+
+    mailboxItem.notificationMessages.addAsync("action", message);
+
     event.completed({ allowEvent: false });
     return;
 }
