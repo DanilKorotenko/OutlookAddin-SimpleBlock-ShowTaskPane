@@ -13,7 +13,7 @@ function validateMessage(event)
     const message =
     {
         type: Office.MailboxEnums.ItemNotificationMessageType.InsightMessage,
-        message: notificationMessage,
+        message: 'Message blocked.',
         icon: "Icon.16x16",
         actions:
         [
