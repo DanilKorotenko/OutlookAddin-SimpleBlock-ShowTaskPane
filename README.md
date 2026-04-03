@@ -6,32 +6,25 @@ Addin code is hosted on: https://danilkorotenko.github.io/OutlookAddin-SimpleBlo
 
 Issue Description
 -----------------
-Outlook on-send addin is invoked for appointments, despite only "ItemIs"..."Message" declared in manifest.
+Insight message notification action button is outside user focus area and visually unnoticable in outlook on the web.
+
 
 Steps To Reproduce
 ------------------
 1. Install manifest: [Manifest](/manifest.xml)
-2. Create a new appointment. Add at least one person to it.
-3. Press the "Send" button.
+2. Try to send any message to any address.
+3. Look at notification message and its action button.
 
 Actual Result
 -------------
-The appointment is blocked to send.
+On Mac, notification message action button looks good and is in user focus area.
+![](/screenshot_mac.png)
+
+On Web version, the action button is somewhere far from user focus area, especially on wide screens.
+
+![](/screenshot_web.png)
+
 
 Expected result
 ---------------
-The appointment is sent.
-
-Hardware
---------
-MacBook Air M1, 2020
-
-Software
---------
-macOS 15.4.1
-
-Outlook for Mac. Version 16.96.1 (25042021)
-
-Screenshots
------------
-![](/Screenshot1.png)
+On Web version, the action button is placed near notification message.
